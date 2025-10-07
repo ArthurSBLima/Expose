@@ -16,8 +16,8 @@
 #define T0K 298.15
 
 
-float ph_v7 = 2.500;
-float ph_v4 = 3.000;
+float ph_v7 = 1.2500;
+float ph_v4 = 1.0000;
 
 
 void setup() {
@@ -53,7 +53,7 @@ void loop() {
   float rNTC = R_FIXED*(vTO/(v_ref-vTO));
 
   float tk = 1.0/(1.0/T0K+(1.0/BETA)*log(rNTC/R0));
-  float temperature = tk - 273.15;
+  float temperature = 25.0;
 
   float aPH = ADCmedio(ph_poPin, n);
   float vPH = (aPH/adc_m)*v_ref; 
@@ -85,6 +85,6 @@ void loop() {
   Serial.print("EC(uS/cm): ");Serial.print(ec,1);Serial.print(" | TDS(ppm): ");Serial.print(tds,0);Serial.print(" || ");
   Serial.print("NTU: ");Serial.println(ntu,1);
 
-  delay(500);
+  delay(3000);
 
 }
